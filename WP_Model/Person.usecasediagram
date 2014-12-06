@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="c32f726f-68c9-4f0c-bf96-9c7f7c4e49dc" linkedPackageId="f2186149-6642-45ce-94f3-d4acf076d1f6" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="a20b8fc9-5ac5-421f-b07d-7d49caaa71b9">
+      <profileInstance Id="21c08c2a-b38e-4cc0-b40e-2960d28878fa" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="7ad4d26e-9eb5-4b80-85f2-a26b3506c056">
+      <profileInstance Id="2f0b66db-3bd1-4575-a17d-4b89d32ada7e" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <useCase Id="30531af9-8e55-4c5f-9a68-f01f415eb837" name="Bejelentkezés" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="15773a41-467b-4a23-9380-4e2d89dc35e2" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="23959300-313a-4bee-b05c-17ce4d4d3467" name="Diák Regisztráció" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="1954d2c0-4d37-4499-b98f-2c0dd0fa877d" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="3598d4b5-2c95-424a-afa5-5d4482c19432" name="Statisztikák megtekintése" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="30e8d076-96a2-4b73-86d9-bd8f6e501931" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="9f7140a3-a375-4bc4-80d7-bb0c43ab638d" name="Teszt Részletek megtekintése" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b8d1f792-f85c-4c33-8380-b8bf97eb415a" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="2c8d254c-f057-4861-b077-1091ca46b27b" name="Teszt Kitöltés" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="8f6597a2-06a5-4f7a-b99a-3c37fa170179" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="b2774222-5532-40cc-9c3b-9244e2e2df87" name="Person" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="912b010d-3371-4dea-93ad-97537490b109" />
+        <targetEnds>
+          <association Id="4e09595c-3397-4dbd-8f31-f05354ff48a3" isDerived="false" sourceEndRoleName="Person" targetEndRoleName="Bejelentkezés" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="30531af9-8e55-4c5f-9a68-f01f415eb837" LastKnownName="Bejelentkezés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="3e59c3f2-fbb8-4bbc-96ca-80aa0df269ed" name="Person" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="67cb2fda-0d35-4b93-9d95-ef9bd58d2c7e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4350dafe-32c9-4014-806d-7a161979e541" name="Bejelentkezés" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="2920f25d-9f0e-4fa5-979f-7740008f5294" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="6423b994-5741-481c-b600-d7db71ce0700" />
+          </association>
+          <association Id="430826e3-2909-4d5d-800c-8a4cc622a50d" isDerived="false" sourceEndRoleName="Person" targetEndRoleName="Teszt Kitöltés" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="2c8d254c-f057-4861-b077-1091ca46b27b" LastKnownName="Teszt Kitöltés" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="598990e2-62fc-4c6f-9ea8-b19d6710949f" name="Person" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8c34aaef-df68-4cb3-835a-04afbfa81feb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="663df0ea-983a-447b-b2c8-cc232a9a1f10" name="Teszt Kitöltés" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="6c0808c1-333a-4725-b3b6-e37b3d16eb3b" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="de537328-a66b-452a-a0d2-234465040543" />
+          </association>
+          <association Id="471f68fa-328d-4015-9b78-ee4598199f98" isDerived="false" sourceEndRoleName="Person" targetEndRoleName="Teszt Részletek megtekintése" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="9f7140a3-a375-4bc4-80d7-bb0c43ab638d" LastKnownName="Teszt Részletek megtekintése" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c43ce357-e0fe-4c63-96c8-78a80fcdd968" name="Person" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="d3c3d863-437c-458d-8808-91a48d160263" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="60c91f95-a731-4680-960b-c6c16402c32b" name="Teszt Részletek megtekintése" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="1d9fa438-7ea8-458d-aacf-b4f2215113c0" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="b055a4f0-2ba0-4f04-b85b-243f0d669312" />
+          </association>
+          <association Id="667872e6-624f-490d-887f-4aee32a26e6b" isDerived="false" sourceEndRoleName="Person" targetEndRoleName="Statisztikák megtekintése" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="3598d4b5-2c95-424a-afa5-5d4482c19432" LastKnownName="Statisztikák megtekintése" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="de89ddd0-bbd9-4194-b5f3-4156cb0fab90" name="Person" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="a45bac85-0c57-4fad-ae1e-6c5f8b287fba" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="24149903-8658-412d-bb79-bf980c2bba09" name="Statisztikák megtekintése" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="aececd3a-e7dc-4774-9006-625d7b120618" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="af4f6b5e-1503-4df2-b2bf-078f0c986117" />
+          </association>
+          <association Id="9f330d86-fbac-4d18-a156-534df59eb784" isDerived="false" sourceEndRoleName="Person" targetEndRoleName="Regisztráció" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="23959300-313a-4bee-b05c-17ce4d4d3467" LastKnownName="Diák Regisztráció" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="e6176e89-2c66-49d1-a0fe-98f0c49063b6" name="Person" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="132982cc-aada-435a-9661-ee8e36a4a9cb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="50248952-6b4e-4377-9c7c-8d527717312c" name="Regisztráció" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3d43c491-5edf-468a-8452-59d026a82282" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="181a3a6f-6642-4b90-b057-c9d2367d1f17" />
+          </association>
+          <association Id="9ceca934-e600-4cd9-956c-fd410f571d0f" isDerived="false" sourceEndRoleName="Person" targetEndRoleName="Profil megtekintése" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="a86e821e-ebe8-4b75-b2f1-26d2cc26226d" LastKnownName="Profil megtekintése" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="c53010d8-3122-429c-b57f-20aec4560fa8" name="Person" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="2febe542-80a0-48be-981a-202cf1e9ba6a" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="8cf5b948-0f4f-47b1-8a24-4f4dc8e1c83e" name="Profil megtekintése" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="f5cbecf0-24f3-4d50-b7e8-bb01995b9a32" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="1221154e-e001-41e1-89d0-ae2b34acf62f" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="a86e821e-ebe8-4b75-b2f1-26d2cc26226d" name="Profil megtekintése" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="cdf63714-9fbc-4ac1-a4b8-c5c6c9050d47" />
+        <suppliersInternal>
+          <dependency Id="3cc4872b-007d-439e-9e3b-6e90ba27f7ae">
+            <useCaseMoniker Id="c6792456-48a8-46bb-887b-a2d9feb2e912" LastKnownName="Mentett Jelszó törlése" />
+            <elementDefinition Id="82196dac-a976-422a-be18-a7ef1221cfc8" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="c6792456-48a8-46bb-887b-a2d9feb2e912" name="Mentett Jelszó törlése" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c407b5db-e9e6-4cb5-8ee0-36acc2d13082" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="f2186149-6642-45ce-94f3-d4acf076d1f6" name="WP_Model">
+    <elementDefinition Id="6a3df2c6-10ba-4914-8ec4-d01a337a0e8e" />
+  </package>
+</useCaseModelRoot>

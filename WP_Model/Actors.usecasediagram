@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="2bb1e7fa-8db5-41f9-b5e9-814513624e5d" name="Actors" linkedPackageId="4b88237e-e457-4d07-92f4-c1703df66b21" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="3b3d730d-a114-47a8-9d69-47ead5c5b08a">
+      <profileInstance Id="5fcb8680-e75c-444c-9e27-77e6fb3246b4" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c2a199c9-ccda-46a4-8fc5-a1eaff25723c">
+      <profileInstance Id="6bd868e9-a63e-4fd9-aafd-bad2247113fb" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="1ddd0b2d-1d2b-482c-b2e8-ebbc235f3c95" name="Diák" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="a671ba5f-3321-4a24-a162-6799d4754475" />
+        <generalsInternal>
+          <generalization Id="07c25236-c579-4817-86c9-5c2239cb1bc5" isSubstitutable="false">
+            <actorMoniker Id="e0c74712-463e-45c8-9b4f-f2a82344c53e" LastKnownName="Person" />
+            <elementDefinition Id="0a8b62d2-a83b-4da8-ae75-ec044f95749d" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e0c74712-463e-45c8-9b4f-f2a82344c53e" name="Person" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="912b010d-3371-4dea-93ad-97537490b109" />
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="22c01ef6-845b-4bc6-87d0-7876faa5ea6c" name="Tanár" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2d6f418d-6cff-4b3a-9a47-44fe684d8fb1" />
+        <generalsInternal>
+          <generalization Id="f44eb89f-088d-4b54-9961-d2a7db8b5b77" isSubstitutable="false">
+            <actorMoniker Id="e0c74712-463e-45c8-9b4f-f2a82344c53e" LastKnownName="Person" />
+            <elementDefinition Id="c1efa351-ab02-43e3-be59-126202128f62" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="fe81120e-4fb0-440d-908b-28524b64ea3e" name="Adminisztrátor" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b509164d-3085-4f70-9297-ab93f0acbda3" />
+        <generalsInternal>
+          <generalization Id="d4824ca9-2e2d-49c6-b12d-bb21e90e4594" isSubstitutable="false">
+            <actorMoniker Id="e0c74712-463e-45c8-9b4f-f2a82344c53e" LastKnownName="Person" />
+            <elementDefinition Id="30c81ecd-d096-4456-bcbe-54e7f0374d7d" />
+          </generalization>
+        </generalsInternal>
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="4b88237e-e457-4d07-92f4-c1703df66b21" name="WP_Model">
+    <elementDefinition Id="6a3df2c6-10ba-4914-8ec4-d01a337a0e8e" />
+  </package>
+</useCaseModelRoot>

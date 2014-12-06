@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="adf264dfc6f545f2979f95a6b470ed0e" Name="Diagram1" >
+        <EntityTypeShape EntityType="JolTudomEModel.Sessions" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="JolTudomEModel.Person" Width="1.5" PointX="3.5" PointY="0.625" />
+        <AssociationConnector Association="JolTudomEModel.FK_Sessions_Person" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

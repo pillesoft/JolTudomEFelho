@@ -1,0 +1,72 @@
+﻿<Page
+    x:Class="JolTudomE_WP.View.TestExecutePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:JolTudomE_WP.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+  xmlns:vm="using:JolTudomE_WP.ViewModel"
+  xmlns:helper="using:JolTudomE_WP.Helper"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <Page.DataContext>
+    <vm:TestExecuteViewModel />
+  </Page.DataContext>
+  <Page.Resources>
+    <helper:IsCheckedToIntConverter x:Key="IsCheckedToIntConverter" />
+  </Page.Resources>
+  <Page.BottomAppBar>
+    <CommandBar>
+      <AppBarButton Icon="Next" Label="Következő" Command="{Binding NextQuestionCommand, Mode=OneWay}"/>
+      <AppBarButton x:Name="cmdStop" Icon="Stop" Label="Befejez" Command="{Binding StopTestCommand, Mode=OneWay}" />
+      <AppBarButton x:Name="cmdCancel" Icon="Cancel" Label="Megszakít" Click="cmdCancel_Click"/>
+    </CommandBar>
+  </Page.BottomAppBar>
+
+  <Grid x:Name="LayoutRoot">
+
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <!-- Title Panel -->
+    <StackPanel Grid.Row="0" Margin="19,0,0,0">
+      <TextBlock Text="Jól Tudom E?" Style="{ThemeResource TitleTextBlockStyle}" Margin="0,12,0,0"/>
+      <TextBlock Text="Teszt Végrehajtás" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+    </StackPanel>
+
+    <!--TODO: Content should be placed within the following grid-->
+    <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+      <Grid.RowDefinitions>
+        <RowDefinition />
+        <RowDefinition Height="Auto" />
+      </Grid.RowDefinitions>
+      <TextBlock Text="{Binding TestQuestion}" FontSize="18" TextWrapping="WrapWholeWords" Margin="3,0,3,9" />
+      <StackPanel Grid.Row="1" >
+        <ToggleButton HorizontalAlignment="Stretch"
+                      IsChecked="{Binding CheckedAnswer, Mode=TwoWay, ConverterParameter=1, Converter={StaticResource IsCheckedToIntConverter}}">
+          <TextBlock Text="{Binding Answers[0]}" TextWrapping="WrapWholeWords" />
+        </ToggleButton>
+        <ToggleButton HorizontalAlignment="Stretch" 
+                      IsChecked="{Binding CheckedAnswer, Mode=TwoWay, ConverterParameter=2, Converter={StaticResource IsCheckedToIntConverter}}">
+          <TextBlock Text="{Binding Answers[1]}" TextWrapping="WrapWholeWords"/>
+        </ToggleButton>
+        <ToggleButton HorizontalAlignment="Stretch"
+                      IsChecked="{Binding CheckedAnswer, Mode=TwoWay, ConverterParameter=3, Converter={StaticResource IsCheckedToIntConverter}}">
+          <TextBlock Text="{Binding Answers[2]}" TextWrapping="WrapWholeWords"/>
+        </ToggleButton>
+        <ToggleButton HorizontalAlignment="Stretch"
+                      IsChecked="{Binding CheckedAnswer, Mode=TwoWay, ConverterParameter=4, Converter={StaticResource IsCheckedToIntConverter}}">
+          <TextBlock Text="{Binding Answers[3]}" TextWrapping="WrapWholeWords"/>
+        </ToggleButton>
+      </StackPanel>
+    </Grid>
+  </Grid>
+</Page>

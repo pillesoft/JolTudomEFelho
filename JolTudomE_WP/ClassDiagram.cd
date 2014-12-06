@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="JolTudomE_WP.Model.Course">
+    <Position X="2.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AACAAAAAAQAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\Course.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.GroupedUser">
+    <Position X="4.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAEAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\GroupedUser.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.LoginResponse">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\LoginResponse.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.NewTest">
+    <Position X="6.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>QAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAEAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NewTestClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.NewTestQuestion">
+    <Position X="8.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Model\NewTestClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.NewTestQuestAnswer">
+    <Position X="7.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAABAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NewTestClasses.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.NewTestParam">
+    <Position X="8.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAQAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\NewTestParam.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.PersonRole">
+    <Position X="4.5" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIACAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\PersonRole.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.SPError">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAAAAAAAAAAAAAAAAAAAAAgAgAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Model\SPError.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.Statistic">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAFAAAAAEAAAAAAAAAAFEAAAACEAAAAA=</HashCode>
+      <FileName>Model\Statistic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.TestDetail">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAgAAAAAAAAAAAAEBAAQAAAAAAAAA=</HashCode>
+      <FileName>Model\TestDetail.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="JolTudomE_WP.Model.Topic">
+    <Position X="4.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAACAA=</HashCode>
+      <FileName>Model\Topic.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

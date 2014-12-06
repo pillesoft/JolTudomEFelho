@@ -1,0 +1,72 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:JolTudomE_WP.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:vm="using:JolTudomE_WP.ViewModel"
+    xmlns:Helper="using:JolTudomE_WP.Helper"
+    x:Class="JolTudomE_WP.View.TestDetailPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <Page.Resources>
+    <Helper:BoolToTestDetImageSourceConverter x:Key="BoolToImageSourceConverter"/>
+    <Style TargetType="TextBlock" x:Key="StyleValasz">
+      <Setter Property="Margin" Value="10,0,0,2" />
+      <Setter Property="FontSize" Value="15" />
+      <Setter Property="TextWrapping" Value="WrapWholeWords" />
+    </Style>
+    <Style TargetType="TextBlock" x:Key="StyleCaption">
+      <Setter Property="Margin" Value="0,2,0,0" />
+      <Setter Property="FontSize" Value="10" />
+      <Setter Property="FontStyle" Value="Italic" />
+    </Style>
+    <DataTemplate x:Key="TestDetListDataTemplate">
+      <StackPanel Margin="3" Orientation="Horizontal">
+        <Image Source="{Binding IsGood, Converter={StaticResource BoolToImageSourceConverter}, Mode=OneWay}" Width="70" Height="70" />
+        <Grid>
+          <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+          </Grid.RowDefinitions>
+          <TextBlock Text="Kérdés:" Grid.Row="0" Style="{StaticResource StyleCaption}" />
+          <TextBlock Text="{Binding QuestionText}" Margin="2,0,0,2" FontSize="20" FontWeight="Bold" TextWrapping="WrapWholeWords" Grid.Row="1" />
+          <TextBlock Text="Felhasználó válasza:" Grid.Row="2" Style="{StaticResource StyleCaption}"/>
+          <TextBlock Text="{Binding ChekedAnswer}" Grid.Row="3" Style="{StaticResource StyleValasz}" />
+          <TextBlock Text="Jó válasz:" Grid.Row="4" Style="{StaticResource StyleCaption}"/>
+          <TextBlock Text="{Binding CorrectAnswer}" Grid.Row="5" Style="{StaticResource StyleValasz}" />
+        </Grid>
+      </StackPanel>
+    </DataTemplate>
+  </Page.Resources>
+
+  <Page.DataContext>
+    <vm:TestDetailViewModel />
+  </Page.DataContext>
+
+  <Grid x:Name="LayoutRoot">
+
+    <Grid.ChildrenTransitions>
+      <TransitionCollection>
+        <EntranceThemeTransition/>
+      </TransitionCollection>
+    </Grid.ChildrenTransitions>
+
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition Height="*"/>
+    </Grid.RowDefinitions>
+
+    <StackPanel Grid.Row="0" Margin="19,0,0,0">
+      <TextBlock Text="Teszt Részletek" Margin="0,-6.5,0,26.5" Style="{ThemeResource HeaderTextBlockStyle}" CharacterSpacing="{ThemeResource PivotHeaderItemCharacterSpacing}"/>
+    </StackPanel>
+
+    <Grid Grid.Row="1" x:Name="ContentRoot" Margin="19,9.5,19,0">
+      <ListView ItemsSource="{Binding TestDetList}" ItemTemplate="{StaticResource TestDetListDataTemplate}" />
+    </Grid>
+  </Grid>
+</Page>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<layerModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="e3d30960-95f5-47c2-ad78-b45cf14057d1" xmlns="http://schemas.microsoft.com/VisualStudio/TeamArchitect/LayerDesigner">
+  <layers>
+    <layer Id="4abb70f0-dcc7-45b8-a0b2-ab638c55719b" name="JolTudomE_WP">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="bc58e571-4bab-428c-b237-25b252dd6a7e" name="Http(s)" direction="Bidirectional">
+          <layerMoniker Id="4f23d6b1-a498-4d65-8d3f-fde91c5024c2" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="b2a281c2-2896-434c-b8ba-906732b232ed" name="WebAPIManager" />
+        <layer Id="b8e8376b-a8be-487b-b60b-ab4c8b1b685a" name="DataSource" />
+        <layer Id="f73aa4ee-5a3f-4b69-9d89-2d73a6533032" name="Navigation/Pages/UI" />
+      </childLayers>
+      <references>
+        <reference Id="cc45318d-b7fa-4c6b-a25c-a414f55791f0" name="JolTudomE_WP">
+          <ArtifactNode Label="JolTudomE_WP" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/Visual Studio 2013/Projects/JolTudomE_WS/JolTudomE_WP/JolTudomE_WP.csproj&quot;)" />
+          <ExpandedNode Id="(Assembly=JolTudomE_WP)" Label="JolTudomE_WP.exe" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.exe" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="4f23d6b1-a498-4d65-8d3f-fde91c5024c2" name="JolTudomE_Api">
+      <dependencyToLayers>
+        <dependencyFromLayerToLayer Id="4c2724e6-7965-4bee-badc-e669a24e875d" direction="Bidirectional">
+          <layerMoniker Id="22621a32-126d-48f4-b771-e931e4f61f27" />
+        </dependencyFromLayerToLayer>
+      </dependencyToLayers>
+      <childLayers>
+        <layer Id="291f33eb-a42d-4d98-b4e8-aeefc7c7632e" name="Entity Framework" />
+        <layer Id="330278dd-82d2-4c77-8d3d-9587bcf25c4f" name="AccountController" />
+        <layer Id="395a0084-0964-48c7-ab65-589d3ff7fe91" name="TestController" />
+        <layer Id="757ded2c-d223-4ea4-9582-9dd03616d508" name="CourseController" />
+        <layer Id="15ab70a3-f906-4648-8c13-ce8640e66ab4" name="Security" />
+        <layer Id="4897649e-a97f-44f8-a519-8c0b02ae6576" name="TokenMessageHandler" />
+        <layer Id="eb33ed41-59ae-46e9-ad06-9bc1b104c548" name="LoginMessageHandler" />
+      </childLayers>
+      <references>
+        <reference Id="4765ab83-fb7f-49b6-8aa0-f478ab5a78c5" name="JolTudomE_Api">
+          <ArtifactNode Label="JolTudomE_Api" Category="CodeSchema_Project" Id="(Assembly=&quot;$(PersonalUri)/Visual Studio 2013/Projects/JolTudomE_WS/JolTudomE_Api/JolTudomE_Api.csproj&quot;)" />
+          <ExpandedNode Id="(Assembly=JolTudomE_Api)" Label="JolTudomE_Api.dll" Category="CodeSchema_Assembly">
+            <Category Ref="FileSystem.Category.FileOfType.dll" />
+            <LinkCategory Ref="Produces" />
+            <LinkCategory Ref="Represents" />
+          </ExpandedNode>
+        </reference>
+      </references>
+    </layer>
+    <layer Id="22621a32-126d-48f4-b771-e931e4f61f27" name="Database" />
+  </layers>
+</layerModel>

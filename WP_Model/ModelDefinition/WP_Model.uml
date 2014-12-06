@@ -1,0 +1,919 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<modelStoreModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm9="http://schemas.microsoft.com/dsltools/SimpleShapesModel" xmlns:dm10="http://schemas.microsoft.com/dsltools/UseCaseModel"
+  dslVersion="1.0.0.0"
+  Id="6a3df2c6-10ba-4914-8ec4-d01a337a0e8e"
+  name="WP_Model" xmlns="http://schemas.microsoft.com/dsltools/ModelStore">
+  <profileInstances>
+    <packageHasProfileInstances
+      Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b">
+      <profileInstance
+        Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791"
+        name="StandardProfileL2" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances
+      Id="29349502-908c-4fda-9054-c48619c59ed0">
+      <profileInstance
+        Id="532ea607-fb19-44b8-8502-3351b05452be"
+        name="StandardProfileL3" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <packageHasNamedElement>
+      <actor
+        Id="a671ba5f-3321-4a24-a162-6799d4754475"
+        name="Diák"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="0a8b62d2-a83b-4da8-ae75-ec044f95749d"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="912b010d-3371-4dea-93ad-97537490b109"
+              LastKnownName="Person"
+              LastKnownLocation="WP_Model.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="c9b21cd0-7934-46bf-ac9f-12c13e31ca14"
+            isDerived="false"
+            sourceEndRoleName="Diák"
+            targetEndRoleName="Bejelentkezés"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="15773a41-467b-4a23-9380-4e2d89dc35e2"
+              LastKnownName="Bejelentkezés"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3f8e903c-6366-49d3-8721-9a50b015ee06"
+                  name="Diák"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d2026a03-63dc-4188-8239-784f67de7d45"
+                  name="Bejelentkezés"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="59bb34fb-6008-45e7-9d6b-84f0147165d0"
+            isDerived="false"
+            sourceEndRoleName="Diák"
+            targetEndRoleName="Regisztráció"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1954d2c0-4d37-4499-b98f-2c0dd0fa877d"
+              LastKnownName="Diák Regisztráció"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3f731a80-7547-4d2a-926f-0a5da4e85543"
+                  name="Diák"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8168f014-6757-472b-bcb2-50447d309a82"
+                  name="Regisztráció"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="8b817d09-7ffc-48e7-b330-31b5a9f33d83"
+            isDerived="false"
+            sourceEndRoleName="Diák"
+            targetEndRoleName="Statisztikák megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="30e8d076-96a2-4b73-86d9-bd8f6e501931"
+              LastKnownName="Statisztikák megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2ad9e1ac-f4e0-4303-9c0d-4273e74e704a"
+                  name="Diák"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ca35c9fd-772c-4763-8ab3-6e97ce17d6bf"
+                  name="Statisztikák megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="d66e6947-5486-4c50-b47c-a53dbeccb4ad"
+            isDerived="false"
+            sourceEndRoleName="Diák"
+            targetEndRoleName="Teszt Részletek megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b8d1f792-f85c-4c33-8380-b8bf97eb415a"
+              LastKnownName="Teszt Részletek megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="61c4531c-1217-43d5-b35f-8cfbf82a6ee1"
+                  name="Diák"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="0e825347-7d71-4252-87c4-212016db045d"
+                  name="Teszt Részletek megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="7cdebbfd-553b-44ed-9665-a2dd1d08740d"
+            isDerived="false"
+            sourceEndRoleName="Diák"
+            targetEndRoleName="Teszt Kitöltés"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8f6597a2-06a5-4f7a-b99a-3c37fa170179"
+              LastKnownName="Teszt Kitöltés"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="84b28870-78cb-4f0b-a026-30180559181d"
+                  name="Diák"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="94bd134c-7732-42f4-b271-88cc16b19ef7"
+                  name="Teszt Kitöltés"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="912b010d-3371-4dea-93ad-97537490b109"
+        name="Person"
+        isAbstract="false"
+        isLeaf="false">
+        <targetEnds>
+          <association
+            Id="6423b994-5741-481c-b600-d7db71ce0700"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Bejelentkezés"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="15773a41-467b-4a23-9380-4e2d89dc35e2"
+              LastKnownName="Bejelentkezés"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="67cb2fda-0d35-4b93-9d95-ef9bd58d2c7e"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2920f25d-9f0e-4fa5-979f-7740008f5294"
+                  name="Bejelentkezés"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="de537328-a66b-452a-a0d2-234465040543"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Teszt Kitöltés"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8f6597a2-06a5-4f7a-b99a-3c37fa170179"
+              LastKnownName="Teszt Kitöltés"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8c34aaef-df68-4cb3-835a-04afbfa81feb"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6c0808c1-333a-4725-b3b6-e37b3d16eb3b"
+                  name="Teszt Kitöltés"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="b055a4f0-2ba0-4f04-b85b-243f0d669312"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Teszt Részletek megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b8d1f792-f85c-4c33-8380-b8bf97eb415a"
+              LastKnownName="Teszt Részletek megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="d3c3d863-437c-458d-8808-91a48d160263"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1d9fa438-7ea8-458d-aacf-b4f2215113c0"
+                  name="Teszt Részletek megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="af4f6b5e-1503-4df2-b2bf-078f0c986117"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Statisztikák megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="30e8d076-96a2-4b73-86d9-bd8f6e501931"
+              LastKnownName="Statisztikák megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a45bac85-0c57-4fad-ae1e-6c5f8b287fba"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="aececd3a-e7dc-4774-9006-625d7b120618"
+                  name="Statisztikák megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="181a3a6f-6642-4b90-b057-c9d2367d1f17"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Regisztráció"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="1954d2c0-4d37-4499-b98f-2c0dd0fa877d"
+              LastKnownName="Diák Regisztráció"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="132982cc-aada-435a-9661-ee8e36a4a9cb"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3d43c491-5edf-468a-8452-59d026a82282"
+                  name="Regisztráció"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1221154e-e001-41e1-89d0-ae2b34acf62f"
+            isDerived="false"
+            sourceEndRoleName="Person"
+            targetEndRoleName="Profil megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="cdf63714-9fbc-4ac1-a4b8-c5c6c9050d47"
+              LastKnownName="Profil megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2febe542-80a0-48be-981a-202cf1e9ba6a"
+                  name="Person"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f5cbecf0-24f3-4d50-b7e8-bb01995b9a32"
+                  name="Profil megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="2d6f418d-6cff-4b3a-9a47-44fe684d8fb1"
+        name="Tanár"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="c1efa351-ab02-43e3-be59-126202128f62"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="912b010d-3371-4dea-93ad-97537490b109"
+              LastKnownName="Person"
+              LastKnownLocation="WP_Model.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="b7b7fe48-3673-46dd-a811-8aa363fbdeec"
+            isDerived="false"
+            sourceEndRoleName="Tanár"
+            targetEndRoleName="Bejelentkezés"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="15773a41-467b-4a23-9380-4e2d89dc35e2"
+              LastKnownName="Bejelentkezés"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7df06364-02ba-41f5-8488-fcbf3e232ca5"
+                  name="Tanár"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="2c716fc6-5329-439c-ad7f-4f13a8273462"
+                  name="Bejelentkezés"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="75a68d47-a4ac-41e5-86c7-88f49fffd404"
+            isDerived="false"
+            sourceEndRoleName="Tanár"
+            targetEndRoleName="Teszt Részletek megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b8d1f792-f85c-4c33-8380-b8bf97eb415a"
+              LastKnownName="Teszt Részletek megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="bbd115a4-6afc-4d2b-a07e-d2c2173e4456"
+                  name="Tanár"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="9adcb42b-5040-423e-9e80-95bc770972ac"
+                  name="Teszt Részletek megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="ba506c76-71fe-414d-8b12-a0cd0280faa5"
+            isDerived="false"
+            sourceEndRoleName="Tanár"
+            targetEndRoleName="Felhasználó Lista"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c2c1ec74-fcdc-45b8-85e7-398d80553f6e"
+              LastKnownName="Felhasználó Lista"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="6a0e2d44-0c69-44d6-bd67-953e869128fb"
+                  name="Tanár"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="ef1edd8b-e12c-4c6a-9a7a-6e8d0a312270"
+                  name="Felhasználó Lista"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <actor
+        Id="b509164d-3085-4f70-9297-ab93f0acbda3"
+        name="Adminisztrátor"
+        isAbstract="false"
+        isLeaf="false">
+        <generalsInternal>
+          <generalization
+            Id="30c81ecd-d096-4456-bcbe-54e7f0374d7d"
+            isSubstitutable="false">
+            <actorMoniker
+              Id="912b010d-3371-4dea-93ad-97537490b109"
+              LastKnownName="Person"
+              LastKnownLocation="WP_Model.uml" />
+          </generalization>
+        </generalsInternal>
+        <targetEnds>
+          <association
+            Id="8d1b760a-0ae8-41b1-8029-76d8133390fb"
+            isDerived="false"
+            sourceEndRoleName="Adminisztrátor"
+            targetEndRoleName="Bejelentkezés"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="15773a41-467b-4a23-9380-4e2d89dc35e2"
+              LastKnownName="Bejelentkezés"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="5749df82-846b-4e39-a536-b7d4c844030c"
+                  name="Adminisztrátor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="49a71362-e14b-4263-88c1-a441f874ffd0"
+                  name="Bejelentkezés"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="1323576c-7bac-41ae-8883-7cd7b71b60a7"
+            isDerived="false"
+            sourceEndRoleName="Adminisztrátor"
+            targetEndRoleName="Teszt Részletek megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="b8d1f792-f85c-4c33-8380-b8bf97eb415a"
+              LastKnownName="Teszt Részletek megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="a40a4b1f-d1c5-4745-bc22-15e565bdaa3a"
+                  name="Adminisztrátor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="1b27c608-3de3-4a64-a60b-5ddb20e837ce"
+                  name="Teszt Részletek megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="505a0ea0-58ec-439d-8594-c1f93944735c"
+            isDerived="false"
+            sourceEndRoleName="Adminisztrátor"
+            targetEndRoleName="Teszt Kitöltés"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="8f6597a2-06a5-4f7a-b99a-3c37fa170179"
+              LastKnownName="Teszt Kitöltés"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="4bd1bd62-d234-4e2d-b294-6f74c38f91e8"
+                  name="Adminisztrátor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="e41af220-8553-4ec7-860b-7ec39565d9b4"
+                  name="Teszt Kitöltés"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="13d9c899-786d-4732-b3ff-7c3e25f3a22b"
+            isDerived="false"
+            sourceEndRoleName="Adminisztrátor"
+            targetEndRoleName="Statisztikák megtekintése"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="30e8d076-96a2-4b73-86d9-bd8f6e501931"
+              LastKnownName="Statisztikák megtekintése"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="7cc0099e-5c94-47cd-abe7-4c78fb2b3573"
+                  name="Adminisztrátor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="f8f0b7d2-7587-4448-94aa-dc176512e201"
+                  name="Statisztikák megtekintése"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+          <association
+            Id="42ff0feb-2dac-4eed-addd-921ceba16945"
+            isDerived="false"
+            sourceEndRoleName="Adminisztrátor"
+            targetEndRoleName="Felhasználó Lista"
+            isLeaf="false"
+            isAbstract="false">
+            <useCaseMoniker
+              Id="c2c1ec74-fcdc-45b8-85e7-398d80553f6e"
+              LastKnownName="Felhasználó Lista"
+              LastKnownLocation="WP_Model.uml" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="8a18a1e4-5479-4eee-a741-480164d7e29f"
+                  name="Adminisztrátor"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false"
+                  isNavigableOwned="false" />
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd
+                  Id="3f8db614-2b2e-4e47-b75b-d6aa19310e0e"
+                  name="Felhasználó Lista"
+                  isLeaf="false"
+                  isStatic="false"
+                  isReadOnly="false"
+                  isDerived="false"
+                  isDerivedUnion="false"
+                  aggregation="None"
+                  isComposite="false" />
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+          </association>
+        </targetEnds>
+      </actor>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="15773a41-467b-4a23-9380-4e2d89dc35e2"
+        name="Bejelentkezés"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="1954d2c0-4d37-4499-b98f-2c0dd0fa877d"
+        name="Diák Regisztráció"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="30e8d076-96a2-4b73-86d9-bd8f6e501931"
+        name="Statisztikák megtekintése"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="b8d1f792-f85c-4c33-8380-b8bf97eb415a"
+        name="Teszt Részletek megtekintése"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="8f6597a2-06a5-4f7a-b99a-3c37fa170179"
+        name="Teszt Kitöltés"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="cdf63714-9fbc-4ac1-a4b8-c5c6c9050d47"
+        name="Profil megtekintése"
+        isAbstract="false"
+        isLeaf="false">
+        <suppliersInternal>
+          <dependency
+            Id="82196dac-a976-422a-be18-a7ef1221cfc8">
+            <useCaseMoniker
+              Id="c407b5db-e9e6-4cb5-8ee0-36acc2d13082"
+              LastKnownName="Mentett Jelszó törlése"
+              LastKnownLocation="WP_Model.uml" />
+          </dependency>
+        </suppliersInternal>
+      </useCase>
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c407b5db-e9e6-4cb5-8ee0-36acc2d13082"
+        name="Mentett Jelszó törlése"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+    <packageHasNamedElement>
+      <useCase
+        Id="c2c1ec74-fcdc-45b8-85e7-398d80553f6e"
+        name="Felhasználó Lista"
+        isAbstract="false"
+        isLeaf="false" />
+    </packageHasNamedElement>
+  </packagedElements>
+  <primitiveType
+    Id="220a3521-e091-4221-bae9-3ef9018e845c"
+    name="Integer"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="8943dc84-709e-4f62-b15a-a3273aa6f165"
+    name="Boolean"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="59259974-6d55-42c6-b7bd-763d77ac8ef9"
+    name="String"
+    isAbstract="false"
+    isLeaf="false" />
+  <primitiveType
+    Id="3ab42e7d-4969-445a-b209-471f5cb8209c"
+    name="UnlimitedNatural"
+    isAbstract="false"
+    isLeaf="false" />
+</modelStoreModel>

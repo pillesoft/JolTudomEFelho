@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="UMLUseCaseDiagram1">
+  <useCaseModelRootMoniker Id="2bb1e7fa-8db5-41f9-b5e9-814513624e5d" />
+  <nestedChildShapes>
+    <actorShape Id="d6a9a945-9541-4432-9c4b-813f9c0adc5e" absoluteBounds="4.125, 2.5, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="1ddd0b2d-1d2b-482c-b2e8-ebbc235f3c95" LastKnownName="Diák" />
+      <relativeChildShapes />
+    </actorShape>
+    <actorShape Id="fc222d20-ca2b-43d0-b8b1-f00d6ce3f539" absoluteBounds="4.125, 1, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="e0c74712-463e-45c8-9b4f-f2a82344c53e" LastKnownName="Person" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseGeneralizationConnector edgePoints="[(4.375 : 2.5); (4.375 : 1.5)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110">
+      <generalizationMoniker Id="07c25236-c579-4817-86c9-5c2239cb1bc5" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="d6a9a945-9541-4432-9c4b-813f9c0adc5e" />
+        <actorShapeMoniker Id="fc222d20-ca2b-43d0-b8b1-f00d6ce3f539" />
+      </nodes>
+    </useCaseGeneralizationConnector>
+    <actorShape Id="4a66ac01-8c8c-451d-a0a7-3b262d8680e9" absoluteBounds="2.125, 2.5, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="22c01ef6-845b-4bc6-87d0-7876faa5ea6c" LastKnownName="Tanár" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseGeneralizationConnector edgePoints="[(2.625 : 2.5625); (4.125 : 1.4375)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110">
+      <generalizationMoniker Id="f44eb89f-088d-4b54-9961-d2a7db8b5b77" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="4a66ac01-8c8c-451d-a0a7-3b262d8680e9" />
+        <actorShapeMoniker Id="fc222d20-ca2b-43d0-b8b1-f00d6ce3f539" />
+      </nodes>
+    </useCaseGeneralizationConnector>
+    <actorShape Id="6d4c3503-4364-4131-b906-087ee115c7a8" absoluteBounds="6.375, 2.5, 0.5, 0.5" isReference="false" heightOffset="0">
+      <actorMoniker Id="fe81120e-4fb0-440d-908b-28524b64ea3e" LastKnownName="Adminisztrátor" />
+      <relativeChildShapes />
+    </actorShape>
+    <useCaseGeneralizationConnector edgePoints="[(6.375 : 2.58333333333333); (4.625 : 1.41666666666667)]" fixedFrom="Algorithm" fixedTo="Algorithm" customColor="113, 111, 110">
+      <generalizationMoniker Id="d4824ca9-2e2d-49c6-b12d-bb21e90e4594" />
+      <relativeChildShapes />
+      <nodes>
+        <actorShapeMoniker Id="6d4c3503-4364-4131-b906-087ee115c7a8" />
+        <actorShapeMoniker Id="fc222d20-ca2b-43d0-b8b1-f00d6ce3f539" />
+      </nodes>
+    </useCaseGeneralizationConnector>
+  </nestedChildShapes>
+</useCaseDiagram>

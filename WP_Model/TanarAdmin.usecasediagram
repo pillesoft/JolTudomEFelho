@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<useCaseModelRoot xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" xmlns:dm1="http://schemas.microsoft.com/dsltools/Kernel" xmlns:dm2="http://schemas.microsoft.com/dsltools/Component" xmlns:dm3="http://schemas.microsoft.com/dsltools/UseCase" xmlns:dm4="http://schemas.microsoft.com/dsltools/Activity" xmlns:dm5="http://schemas.microsoft.com/dsltools/Interaction" xmlns:dm6="http://schemas.microsoft.com/dsltools/UmlModelLibrary" xmlns:dm7="http://schemas.microsoft.com/dsltools/UmlDiagrams" xmlns:dm8="http://schemas.microsoft.com/dsltools/ModelStore" xmlns:dm9="http://schemas.microsoft.com/dsltools/LogicalClassDesigner" xmlns:dm10="http://schemas.microsoft.com/dsltools/SimpleShapesModel" dslVersion="1.0.0.0" Id="df739c94-5b45-44a0-8c31-f31084f9546d" name="TanarAdmin" linkedPackageId="4d18d084-1715-40b6-ae7a-1141c16b0ce3" xmlns="http://schemas.microsoft.com/dsltools/UseCaseModel">
+  <profileInstances>
+    <packageHasProfileInstances Id="3ada6e50-8e7d-4338-bf36-2177d44ebeab">
+      <profileInstance Id="48e43552-d5dd-47f6-bfb7-57e62ae888cf" name="StandardProfileL2">
+        <elementDefinition Id="e34d544e-0fea-4ed6-ac5e-1b74119ac791" />
+      </profileInstance>
+      <elementDefinition Id="0caec977-1f8c-4ba3-a7db-8cc9ad9cc73b" />
+    </packageHasProfileInstances>
+    <packageHasProfileInstances Id="c1ccc3b5-4932-4eb5-beb8-d76a577d8a5d">
+      <profileInstance Id="db70a734-1570-4fa2-b363-3e253516d44a" name="StandardProfileL3">
+        <elementDefinition Id="532ea607-fb19-44b8-8502-3351b05452be" />
+      </profileInstance>
+      <elementDefinition Id="29349502-908c-4fda-9054-c48619c59ed0" />
+    </packageHasProfileInstances>
+  </profileInstances>
+  <packagedElements>
+    <useCaseModelRootHasTypes>
+      <actor Id="1bded8bb-4749-4787-bb95-855703f64f18" name="Tanár" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="2d6f418d-6cff-4b3a-9a47-44fe684d8fb1" />
+        <targetEnds>
+          <association Id="b2b2564f-2ae8-481d-8507-7aed2d8e7be6" isDerived="false" sourceEndRoleName="Tanár" targetEndRoleName="Felhasználó Lista" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="89f9db8d-d236-4068-92f7-c56e1ec9e5d9" LastKnownName="Felhasználó Lista" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="602150a7-cbae-4a25-8707-27f859d14f88" name="Tanár" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="6a0e2d44-0c69-44d6-bd67-953e869128fb" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="53b7ae3f-245f-4ac3-97dc-3d7d0f4af97f" name="Felhasználó Lista" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="ef1edd8b-e12c-4c6a-9a7a-6e8d0a312270" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="ba506c76-71fe-414d-8b12-a0cd0280faa5" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <useCase Id="89f9db8d-d236-4068-92f7-c56e1ec9e5d9" name="Felhasználó Lista" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="c2c1ec74-fcdc-45b8-85e7-398d80553f6e" />
+      </useCase>
+    </useCaseModelRootHasTypes>
+    <useCaseModelRootHasTypes>
+      <actor Id="e99be589-eeec-40e4-8a7f-888e2efe3d81" name="Adminisztrátor" isAbstract="false" isLeaf="false">
+        <elementDefinition Id="b509164d-3085-4f70-9297-ab93f0acbda3" />
+        <targetEnds>
+          <association Id="69fce33e-9788-4941-ba52-1ed23d203511" isDerived="false" sourceEndRoleName="Adminisztrátor" targetEndRoleName="Felhasználó Lista" isLeaf="false" isAbstract="false">
+            <useCaseMoniker Id="89f9db8d-d236-4068-92f7-c56e1ec9e5d9" LastKnownName="Felhasználó Lista" />
+            <relationshipOwnedElementsInternal>
+              <associationHasOwnedEnds>
+                <memberEnd Id="defc5b87-7609-4afa-8a1c-8ab21aecc6e4" name="Adminisztrátor" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false" isNavigableOwned="false">
+                  <elementDefinition Id="8a18a1e4-5479-4eee-a741-480164d7e29f" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+              <associationHasOwnedEnds>
+                <memberEnd Id="4daae0a7-2ca3-4a61-81b5-a124be5c71e4" name="Felhasználó Lista" isLeaf="false" isStatic="false" isReadOnly="false" isDerived="false" isDerivedUnion="false" aggregation="None" isComposite="false">
+                  <elementDefinition Id="3f8db614-2b2e-4e47-b75b-d6aa19310e0e" />
+                </memberEnd>
+              </associationHasOwnedEnds>
+            </relationshipOwnedElementsInternal>
+            <elementDefinition Id="42ff0feb-2dac-4eed-addd-921ceba16945" />
+          </association>
+        </targetEnds>
+      </actor>
+    </useCaseModelRootHasTypes>
+  </packagedElements>
+  <package Id="4d18d084-1715-40b6-ae7a-1141c16b0ce3" name="WP_Model">
+    <elementDefinition Id="6a3df2c6-10ba-4914-8ec4-d01a337a0e8e" />
+  </package>
+</useCaseModelRoot>

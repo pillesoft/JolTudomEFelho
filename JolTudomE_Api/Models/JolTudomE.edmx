@@ -1,0 +1,430 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="JolTudomEModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="8" Nullable="false" />
+          <Property Name="Prefix" Type="varchar" MaxLength="5" />
+          <Property Name="LastName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="MiddleName" Type="varchar" MaxLength="25" />
+          <Property Name="FirstName" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="Created" Type="datetime" Nullable="false" />
+          <Property Name="Password" Type="varchar" MaxLength="21" Nullable="false" />
+          <Property Name="UserGuid" Type="uniqueidentifier" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="Token" />
+          </Key>
+          <Property Name="Token" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="PersonID" Type="int" Nullable="false" />
+          <Property Name="LastAction" Type="datetime" Nullable="false" />
+          <Property Name="RoleID" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Sessions_Person">
+          <End Role="Person" Type="Self.Person" Multiplicity="1" />
+          <End Role="Sessions" Type="Self.Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="usp_GetCourses" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="course" />
+        <Function Name="usp_GetTopics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="course">
+          <Parameter Name="courseid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_AddEvent" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="mobile">
+          <Parameter Name="testid" Type="int" Mode="In" />
+          <Parameter Name="eventid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CancelTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="test">
+          <Parameter Name="testid" Type="int" Mode="In" />
+          <Parameter Name="person" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_CheckedAnswer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="test">
+          <Parameter Name="testid" Type="int" Mode="In" />
+          <Parameter Name="questionid" Type="int" Mode="In" />
+          <Parameter Name="answerid" Type="int" Mode="In" />
+          <Parameter Name="complete" Type="bit" Mode="In" />
+        </Function>
+        <Function Name="usp_CleanupTests" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="test">
+          <Parameter Name="timeout" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_ContineTest" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="test">
+          <Parameter Name="personid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Eval" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="test">
+          <Parameter Name="testid" Type="int" Mode="In" />
+          <Parameter Name="person" Type="int" Mode="In" />
+          <Parameter Name="callerid" Type="int" Mode="In" />
+          <Parameter Name="roleid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Statistics" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="test">
+          <Parameter Name="person" Type="int" Mode="In" />
+          <Parameter Name="callerid" Type="int" Mode="In" />
+          <Parameter Name="roleid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_AddNewUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="users">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="prefix" Type="varchar" Mode="In" />
+          <Parameter Name="lastname" Type="varchar" Mode="In" />
+          <Parameter Name="middlename" Type="varchar" Mode="In" />
+          <Parameter Name="firstname" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+          <Parameter Name="role" Type="tinyint" Mode="In" />
+        </Function>
+        <Function Name="usp_Authenticate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="users">
+          <Parameter Name="username" Type="varchar" Mode="In" />
+          <Parameter Name="password" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_GetAllUsers" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="users">
+          <Parameter Name="roleid" Type="int" Mode="In" />
+          <Parameter Name="sroleid" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_SearchUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="users">
+          <Parameter Name="roleid" Type="int" Mode="In" />
+          <Parameter Name="prefix" Type="varchar" Mode="In" />
+          <Parameter Name="firstname" Type="varchar" Mode="In" />
+          <Parameter Name="middlename" Type="varchar" Mode="In" />
+          <Parameter Name="lastname" Type="varchar" Mode="In" />
+          <Parameter Name="username" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="usp_SessionsCleanup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="users">
+          <Parameter Name="timeout" Type="int" Mode="In" />
+        </Function>
+        <EntityContainer Name="JolTudomEModelStoreContainer">
+          <EntitySet Name="Person" EntityType="Self.Person" Schema="users" store:Type="Tables" />
+          <EntitySet Name="Sessions" EntityType="Self.Sessions" Schema="users" store:Type="Tables" />
+          <AssociationSet Name="FK_Sessions_Person" Association="Self.FK_Sessions_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="JolTudomEModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="JolTudomEEntities" annotation:LazyLoadingEnabled="true" >
+          <FunctionImport Name="usp_AddNewUser">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="prefix" Mode="In" Type="String" />
+            <Parameter Name="lastname" Mode="In" Type="String" />
+            <Parameter Name="middlename" Mode="In" Type="String" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+            <Parameter Name="role" Mode="In" Type="Byte" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Authenticate" ReturnType="Collection(JolTudomEModel.usp_Authenticate_Result)">
+            <Parameter Name="username" Mode="In" Type="String" />
+            <Parameter Name="password" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Sessions" EntityType="JolTudomEModel.Sessions" />
+          <FunctionImport Name="usp_SessionsCleanup">
+          <Parameter Name="timeout" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CleanupTests">
+          <Parameter Name="timeout" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_SearchUser" ReturnType="Collection(JolTudomEModel.usp_SearchUser_Result)">
+            <Parameter Name="roleid" Mode="In" Type="Int32" />
+            <Parameter Name="prefix" Mode="In" Type="String" />
+            <Parameter Name="firstname" Mode="In" Type="String" />
+            <Parameter Name="middlename" Mode="In" Type="String" />
+            <Parameter Name="lastname" Mode="In" Type="String" />
+            <Parameter Name="username" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_GetCourses" ReturnType="Collection(JolTudomEModel.usp_GetCourses_Result)" />
+          <FunctionImport Name="usp_GetTopics" ReturnType="Collection(JolTudomEModel.usp_GetTopics_Result)">
+          <Parameter Name="courseid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Statistics" ReturnType="Collection(JolTudomEModel.usp_Statistics_Result)">
+            <Parameter Name="person" Mode="In" Type="Int32" />
+            <Parameter Name="callerid" Mode="In" Type="Int32" />
+            <Parameter Name="roleid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Eval" ReturnType="Collection(JolTudomEModel.usp_Eval_Result)">
+            <Parameter Name="testid" Mode="In" Type="Int32" />
+            <Parameter Name="person" Mode="In" Type="Int32" />
+            <Parameter Name="callerid" Mode="In" Type="Int32" />
+            <Parameter Name="roleid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CancelTest">
+            <Parameter Name="testid" Mode="In" Type="Int32" />
+            <Parameter Name="person" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_CheckedAnswer">
+            <Parameter Name="testid" Mode="In" Type="Int32" />
+            <Parameter Name="questionid" Mode="In" Type="Int32" />
+            <Parameter Name="answerid" Mode="In" Type="Int32" />
+            <Parameter Name="complete" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <EntitySet Name="Person" EntityType="JolTudomEModel.Person" />
+          <AssociationSet Name="FK_Sessions_Person" Association="JolTudomEModel.FK_Sessions_Person">
+            <End Role="Person" EntitySet="Person" />
+            <End Role="Sessions" EntitySet="Sessions" />
+          </AssociationSet>
+          <FunctionImport Name="usp_GetAllUsers" ReturnType="Collection(JolTudomEModel.usp_GetAllUsers_Result)">
+            <Parameter Name="roleid" Mode="In" Type="Int32" />
+            <Parameter Name="sroleid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_AddEvent">
+            <Parameter Name="testid" Mode="In" Type="Int32" />
+            <Parameter Name="eventid" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_ContineTest" ReturnType="Collection(JolTudomEModel.usp_ContineTest_Result)">
+            <Parameter Name="personid" Mode="In" Type="Int32" />
+          </FunctionImport>
+        </EntityContainer>
+        <ComplexType Name="usp_Authenticate_Result">
+          <Property Type="Int32" Name="PersonID" Nullable="false" />
+          <Property Type="String" Name="Prefix" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="25" />
+          <Property Type="Int32" Name="RoleID" Nullable="false" />
+        </ComplexType>
+        <EntityType Name="Sessions">
+          <Key>
+            <PropertyRef Name="Token" />
+          </Key>
+          <Property Name="Token" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="PersonID" Type="Int32" Nullable="false" />
+          <Property Name="LastAction" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RoleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Person" Relationship="JolTudomEModel.FK_Sessions_Person" FromRole="Sessions" ToRole="Person" />
+        </EntityType>
+        <ComplexType Name="usp_SearchUser_Result">
+          <Property Type="String" Name="Prefix" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="UserName" Nullable="false" MaxLength="8" />
+          <Property Type="Int32" Name="PersonID" Nullable="false" />
+          <Property Type="Int32" Name="RoleID" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_GetCourses_Result">
+          <Property Type="Int32" Name="CourseID" Nullable="false" />
+          <Property Type="String" Name="CourseName" Nullable="false" MaxLength="30" />
+          <Property Type="String" Name="CourseDescription" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_GetTopics_Result">
+          <Property Type="Int32" Name="TopicID" Nullable="false" />
+          <Property Type="String" Name="TopicName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TopicDescription" Nullable="true" MaxLength="255" />
+        </ComplexType>
+        <ComplexType Name="usp_Statistics_Result">
+          <Property Type="Int32" Name="TestID" Nullable="false" />
+          <Property Type="DateTime" Name="Generated" Nullable="false" Precision="23" />
+          <Property Type="Int32" Name="Questions" Nullable="true" />
+          <Property Type="Int32" Name="CorrectAnswer" Nullable="false" />
+          <Property Type="Decimal" Name="Percent" Nullable="true" Precision="5" Scale="2" />
+          <Property Type="Time" Name="TotalTime" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="usp_Eval_Result">
+          <Property Type="String" Name="QuestionText" Nullable="false" MaxLength="255" />
+          <Property Type="String" Name="ChekedAnswer" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="CorrectAnswer" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="Person">
+          <Key>
+            <PropertyRef Name="PersonID" />
+          </Key>
+          <Property Name="PersonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserName" Type="String" Nullable="false" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="Prefix" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FirstName" Type="String" Nullable="false" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Created" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Password" Type="String" Nullable="false" MaxLength="21" FixedLength="false" Unicode="false" />
+          <Property Name="UserGuid" Type="Guid" Nullable="false" />
+          <NavigationProperty Name="Sessions" Relationship="JolTudomEModel.FK_Sessions_Person" FromRole="Person" ToRole="Sessions" />
+        </EntityType>
+        <Association Name="FK_Sessions_Person">
+          <End Type="JolTudomEModel.Person" Role="Person" Multiplicity="1" />
+          <End Type="JolTudomEModel.Sessions" Role="Sessions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Person">
+              <PropertyRef Name="PersonID" />
+            </Principal>
+            <Dependent Role="Sessions">
+              <PropertyRef Name="PersonID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <ComplexType Name="usp_GetAllUsers_Result">
+          <Property Type="String" Name="Prefix" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="FirstName" Nullable="false" MaxLength="25" />
+          <Property Type="String" Name="MiddleName" Nullable="true" MaxLength="25" />
+          <Property Type="String" Name="LastName" Nullable="false" MaxLength="25" />
+          <Property Type="Int32" Name="PersonID" Nullable="false" />
+          <Property Type="Int32" Name="RoleID" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ContineTest_Result">
+          <Property Type="Int32" Name="TestID" Nullable="false" />
+          <Property Type="Int32" Name="QuestionID" Nullable="false" />
+          <Property Type="String" Name="QuestionText" Nullable="false" MaxLength="255" />
+          <Property Type="Int32" Name="AnswerID" Nullable="true" />
+          <Property Type="String" Name="AnswerText" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="PersonID" Nullable="false" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="JolTudomEModelStoreContainer" CdmEntityContainer="JolTudomEEntities" >
+          <FunctionImportMapping FunctionImportName="usp_AddNewUser" FunctionName="JolTudomEModel.Store.usp_AddNewUser" />
+          <FunctionImportMapping FunctionImportName="usp_Authenticate" FunctionName="JolTudomEModel.Store.usp_Authenticate">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_Authenticate_Result">
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="Sessions">
+            <EntityTypeMapping TypeName="JolTudomEModel.Sessions">
+              <MappingFragment StoreEntitySet="Sessions">
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+                <ScalarProperty Name="LastAction" ColumnName="LastAction" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="Token" ColumnName="Token" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_SessionsCleanup" FunctionName="JolTudomEModel.Store.usp_SessionsCleanup" />
+          <FunctionImportMapping FunctionImportName="usp_CleanupTests" FunctionName="JolTudomEModel.Store.usp_CleanupTests" />
+          <FunctionImportMapping FunctionImportName="usp_SearchUser" FunctionName="JolTudomEModel.Store.usp_SearchUser">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_SearchUser_Result">
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetCourses" FunctionName="JolTudomEModel.Store.usp_GetCourses">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_GetCourses_Result">
+                <ScalarProperty Name="CourseID" ColumnName="CourseID" />
+                <ScalarProperty Name="CourseName" ColumnName="CourseName" />
+                <ScalarProperty Name="CourseDescription" ColumnName="CourseDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetTopics" FunctionName="JolTudomEModel.Store.usp_GetTopics">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_GetTopics_Result">
+                <ScalarProperty Name="TopicID" ColumnName="TopicID" />
+                <ScalarProperty Name="TopicName" ColumnName="TopicName" />
+                <ScalarProperty Name="TopicDescription" ColumnName="TopicDescription" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Statistics" FunctionName="JolTudomEModel.Store.usp_Statistics">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_Statistics_Result">
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="Generated" ColumnName="Generated" />
+                <ScalarProperty Name="Questions" ColumnName="Questions" />
+                <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+                <ScalarProperty Name="Percent" ColumnName="Percent" />
+                <ScalarProperty Name="TotalTime" ColumnName="TotalTime" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_Eval" FunctionName="JolTudomEModel.Store.usp_Eval">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_Eval_Result">
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="ChekedAnswer" ColumnName="ChekedAnswer" />
+                <ScalarProperty Name="CorrectAnswer" ColumnName="CorrectAnswer" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_CancelTest" FunctionName="JolTudomEModel.Store.usp_CancelTest" />
+          <FunctionImportMapping FunctionImportName="usp_CheckedAnswer" FunctionName="JolTudomEModel.Store.usp_CheckedAnswer" />
+          <EntitySetMapping Name="Person">
+            <EntityTypeMapping TypeName="JolTudomEModel.Person">
+              <MappingFragment StoreEntitySet="Person">
+                <ScalarProperty Name="UserGuid" ColumnName="UserGuid" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="Created" ColumnName="Created" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_GetAllUsers" FunctionName="JolTudomEModel.Store.usp_GetAllUsers">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_GetAllUsers_Result">
+                <ScalarProperty Name="Prefix" ColumnName="Prefix" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+                <ScalarProperty Name="RoleID" ColumnName="RoleID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_AddEvent" FunctionName="JolTudomEModel.Store.usp_AddEvent" />
+          <FunctionImportMapping FunctionImportName="usp_ContineTest" FunctionName="JolTudomEModel.Store.usp_ContineTest">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="JolTudomEModel.usp_ContineTest_Result">
+                <ScalarProperty Name="TestID" ColumnName="TestID" />
+                <ScalarProperty Name="QuestionID" ColumnName="QuestionID" />
+                <ScalarProperty Name="QuestionText" ColumnName="QuestionText" />
+                <ScalarProperty Name="AnswerID" ColumnName="AnswerID" />
+                <ScalarProperty Name="AnswerText" ColumnName="AnswerText" />
+                <ScalarProperty Name="PersonID" ColumnName="PersonID" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,375 @@
+﻿<Page
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:JolTudomE_WP.View"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+  xmlns:vm="using:JolTudomE_WP.ViewModel"
+  xmlns:helper="using:JolTudomE_WP.Helper"
+    xmlns:Interactivity="using:Microsoft.Xaml.Interactivity" xmlns:Core="using:Microsoft.Xaml.Interactions.Core"
+    x:Class="JolTudomE_WP.View.SelectedUserPage"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+  <Page.Resources>
+    <helper:ErrorMessageToVisibilityConverter x:Key="ErrorMessageToVisibilityConverter"/>
+    <helper:ItemClickConverter x:Key="ItemClickConverter" />
+    <helper:TopicSelectionChangedConverter x:Key="TopicSelectionChangedConverter" />
+    <DataTemplate x:Key="StatisticListDataTemplate">
+      <Grid Margin="3">
+        <Grid.ColumnDefinitions>
+          <ColumnDefinition/>
+          <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+          <RowDefinition />
+          <RowDefinition />
+        </Grid.RowDefinitions>
+        <TextBlock FontSize="26.667" Grid.RowSpan="2" VerticalAlignment="Center" 
+                   Margin="0,0,2,0" FontWeight="Bold" Width="110"
+                   Text="{Binding PercentString, Mode=OneWay}" TextAlignment="Right" />
+        <TextBlock Text="{Binding GeneratedString}" Grid.Column="1" Margin="2,2,0,2" FontSize="18.667" />
+        <Grid Grid.Column="1" Margin="2" Grid.Row="1" Grid.RowSpan="2">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+          </Grid.ColumnDefinitions>
+          <TextBlock Text="{Binding NumberOfQuestAnsw}" FontSize="18.667" Height="22" HorizontalAlignment="Left" />
+          <TextBlock Text="{Binding TotalTime}" FontSize="18.667" Margin="0" Grid.Column="1" HorizontalAlignment="Right" />
+        </Grid>
+      </Grid>
+    </DataTemplate>
+    <DataTemplate x:Key="TopicListDataTemplate">
+      <StackPanel>
+        <TextBlock Text="{Binding TopicName}" FontWeight="Bold" FontSize="18.667" />
+        <TextBlock Text="{Binding TopicDescription}" FontStyle="Italic" Margin="5,0,0,0" FontSize="16" />
+      </StackPanel>
+    </DataTemplate>
+    <helper:IsCheckedToIntConverter x:Key="RadioButtonConverter" />
+    <helper:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter" />
+    <helper:BoolToNegateConverter x:Key="BoolToNegateConverter" />
+    <Style x:Key="ListViewItemStyle" TargetType="ListViewItem">
+      <Setter Property="FontFamily" Value="{ThemeResource ContentControlThemeFontFamily}"/>
+      <Setter Property="FontSize" Value="{ThemeResource ControlContentThemeFontSize}"/>
+      <Setter Property="Background" Value="Transparent"/>
+      <Setter Property="TabNavigation" Value="Local"/>
+      <Setter Property="IsHoldingEnabled" Value="False"/>
+      <Setter Property="Margin" Value="{ThemeResource ListViewItemMargin}"/>
+      <Setter Property="HorizontalContentAlignment" Value="Left"/>
+      <Setter Property="VerticalContentAlignment" Value="Top"/>
+      <Setter Property="Template">
+        <Setter.Value>
+          <ControlTemplate TargetType="ListViewItem">
+            <Border x:Name="OuterContainer" RenderTransformOrigin="0.5,0.5">
+              <Border.RenderTransform>
+                <ScaleTransform x:Name="ContentScaleTransform"/>
+              </Border.RenderTransform>
+              <VisualStateManager.VisualStateGroups>
+                <VisualStateGroup x:Name="CommonStates">
+                  <VisualStateGroup.Transitions>
+                    <VisualTransition From="Pressed" To="Normal">
+                      <Storyboard>
+                        <PointerUpThemeAnimation Storyboard.TargetName="TiltContainer"/>
+                      </Storyboard>
+                    </VisualTransition>
+                  </VisualStateGroup.Transitions>
+                  <VisualState x:Name="Normal"/>
+                  <VisualState x:Name="Pressed">
+                    <Storyboard>
+                      <PointerDownThemeAnimation Storyboard.TargetName="TiltContainer"/>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="CheckboxPressed">
+                    <Storyboard>
+                      <PointerDownThemeAnimation Storyboard.TargetName="CheckboxTiltContainer"/>
+                      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="NormalRectangle">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CheckBoxPressedBackgroundThemeBrush}"/>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="Fill" Storyboard.TargetName="CheckGlyph">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CheckBoxPressedForegroundThemeBrush}"/>
+                      </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="Disabled">
+                    <Storyboard>
+                      <DoubleAnimation Duration="0" To="{ThemeResource ListViewItemDisabledThemeOpacity}" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="contentPresenter"/>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="CheckGlyph">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="{ThemeResource CheckBoxDisabledForegroundThemeBrush}"/>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="BorderBrush" Storyboard.TargetName="SelectedBorder">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="SelectedEarmark">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Fill" Storyboard.TargetName="SelectedGlyph">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Transparent"/>
+                      </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="SelectionStates">
+                  <VisualState x:Name="Unselected"/>
+                  <VisualState x:Name="Selected">
+                    <Storyboard>
+                      <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckGlyph"/>
+                      <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SelectedCheckMark"/>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="SelectedUnfocused">
+                    <Storyboard>
+                      <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="CheckGlyph"/>
+                      <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SelectedCheckMark"/>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="DataVirtualizationStates">
+                  <VisualState x:Name="DataAvailable"/>
+                  <VisualState x:Name="DataPlaceholder">
+                    <Storyboard>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="PlaceholderTextBlock">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Duration="0" Storyboard.TargetProperty="Visibility" Storyboard.TargetName="PlaceholderRect">
+                        <DiscreteObjectKeyFrame KeyTime="0" Value="Visible"/>
+                      </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="MultiSelectStates">
+                  <VisualStateGroup.Transitions>
+                    <VisualTransition From="ListMultiSelect" GeneratedDuration="0:0:0.15" To="NoMultiSelect"/>
+                    <VisualTransition From="NoMultiSelect" GeneratedDuration="0:0:0.15" To="ListMultiSelect"/>
+                  </VisualStateGroup.Transitions>
+                  <VisualState x:Name="NoMultiSelect"/>
+                  <VisualState x:Name="ListMultiSelect">
+                    <Storyboard>
+                      <DoubleAnimation Duration="0" To="0" Storyboard.TargetProperty="X" Storyboard.TargetName="CheckboxContainerTranslateTransform"/>
+                      <DoubleAnimation Duration="0" To="{ThemeResource ListViewItemContentTranslateX}" Storyboard.TargetProperty="X" Storyboard.TargetName="ContentBorderTranslateTransform"/>
+                      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Stroke)" Storyboard.TargetName="NormalRectangle">
+                        <DiscreteObjectKeyFrame KeyTime="0">
+                          <DiscreteObjectKeyFrame.Value>
+                            <SolidColorBrush Color="White"/>
+                            <!--<SolidColorBrush Color="#FF001D96"/>-->
+                          </DiscreteObjectKeyFrame.Value>
+                        </DiscreteObjectKeyFrame>
+                      </ObjectAnimationUsingKeyFrames>
+                      <ObjectAnimationUsingKeyFrames Storyboard.TargetProperty="(Shape.Fill)" Storyboard.TargetName="NormalRectangle">
+                        <DiscreteObjectKeyFrame KeyTime="0">
+                          <DiscreteObjectKeyFrame.Value>
+                            <SolidColorBrush Color="WhiteSmoke"/>
+                            <!--<SolidColorBrush Color="#FF0053AC"/>-->
+                          </DiscreteObjectKeyFrame.Value>
+                        </DiscreteObjectKeyFrame>
+                      </ObjectAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="GridMultiSelect">
+                    <Storyboard>
+                      <DoubleAnimation Duration="0" To="1" Storyboard.TargetProperty="Opacity" Storyboard.TargetName="SelectedBorder"/>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="ReorderModeStates">
+                  <VisualStateGroup.Transitions>
+                    <VisualTransition From="ReorderEnabled" GeneratedDuration="00:00:00.2" To="ReorderDisabled"/>
+                  </VisualStateGroup.Transitions>
+                  <VisualState x:Name="ReorderEnabled">
+                    <Storyboard>
+                      <DropTargetItemThemeAnimation Storyboard.TargetName="OuterContainer"/>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="Reorderable">
+                    <Storyboard>
+                      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="ScaleX" Storyboard.TargetName="ContentScaleTransform">
+                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.05"/>
+                        <LinearDoubleKeyFrame KeyTime="00:00:00.2" Value="1.0"/>
+                      </DoubleAnimationUsingKeyFrames>
+                      <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="ScaleY" Storyboard.TargetName="ContentScaleTransform">
+                        <LinearDoubleKeyFrame KeyTime="00:00:00.075" Value="1.05"/>
+                        <LinearDoubleKeyFrame KeyTime="00:00:00.2" Value="1.0"/>
+                      </DoubleAnimationUsingKeyFrames>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="ReorderDisabled"/>
+                </VisualStateGroup>
+                <VisualStateGroup x:Name="ReorderHintStates">
+                  <VisualStateGroup.Transitions>
+                    <VisualTransition GeneratedDuration="0:0:0.2" To="NoReorderHint"/>
+                  </VisualStateGroup.Transitions>
+                  <VisualState x:Name="NoReorderHint"/>
+                  <VisualState x:Name="BottomReorderHint">
+                    <Storyboard>
+                      <DragOverThemeAnimation Direction="Bottom" ToOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" Storyboard.TargetName="ReorderHintContent"/>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="RightReorderHint">
+                    <Storyboard>
+                      <DragOverThemeAnimation Direction="Right" ToOffset="{ThemeResource ListViewItemReorderHintThemeOffset}" Storyboard.TargetName="ReorderHintContent"/>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="TopReorderHint">
+                    <Storyboard>
+                      <DragOverThemeAnimation Direction="Top" ToOffset="0" Storyboard.TargetName="ReorderHintContent"/>
+                    </Storyboard>
+                  </VisualState>
+                  <VisualState x:Name="LeftReorderHint">
+                    <Storyboard>
+                      <DragOverThemeAnimation Direction="Left" ToOffset="0" Storyboard.TargetName="ReorderHintContent"/>
+                    </Storyboard>
+                  </VisualState>
+                </VisualStateGroup>
+              </VisualStateManager.VisualStateGroups>
+              <Grid x:Name="ReorderHintContent" Background="Transparent">
+                <Border x:Name="CheckboxTiltContainer" HorizontalAlignment="Left" Margin="{ThemeResource ListViewItemMultiselectCheckBoxMargin}" VerticalAlignment="Top">
+                  <Border x:Name="CheckboxOuterContainer">
+                    <Border.Clip>
+                      <RectangleGeometry Rect="0,0,25.5,25.5"/>
+                    </Border.Clip>
+                    <Grid x:Name="CheckboxContainer">
+                      <Grid.RenderTransform>
+                        <TranslateTransform x:Name="CheckboxContainerTranslateTransform" X="{ThemeResource ListViewItemContentOffsetX}"/>
+                      </Grid.RenderTransform>
+                      <Rectangle x:Name="NormalRectangle" Fill="{ThemeResource CheckBoxBackgroundThemeBrush}" Height="25.5" StrokeThickness="{ThemeResource CheckBoxBorderThemeThickness}" Width="25.5"/>
+                      <Path x:Name="CheckGlyph" Data="M0,123 L39,93 L124,164 L256,18 L295,49 L124,240 z" Fill="{ThemeResource CheckBoxForegroundThemeBrush}" FlowDirection="LeftToRight" HorizontalAlignment="Center" Height="17" IsHitTestVisible="False" Opacity="0" Stretch="Fill" StrokeThickness="2.5" StrokeLineJoin="Round" VerticalAlignment="Center" Width="18.5"/>
+                    </Grid>
+                  </Border>
+                </Border>
+                <Border x:Name="ContentContainer">
+                  <Border x:Name="TiltContainer">
+                    <Border x:Name="ContentBorder" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}">
+                      <Border.RenderTransform>
+                        <TranslateTransform x:Name="ContentBorderTranslateTransform"/>
+                      </Border.RenderTransform>
+                      <Grid>
+                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding ContentTemplate}" ContentTransitions="{TemplateBinding ContentTransitions}" Content="{TemplateBinding Content}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        <TextBlock x:Name="PlaceholderTextBlock" AutomationProperties.AccessibilityView="Raw" Foreground="{x:Null}" IsHitTestVisible="False" Margin="{TemplateBinding Padding}" Opacity="0" Text="Xg"/>
+                        <Rectangle x:Name="PlaceholderRect" Fill="{ThemeResource ListViewItemPlaceholderBackgroundThemeBrush}" IsHitTestVisible="False" Visibility="Collapsed"/>
+                      </Grid>
+                    </Border>
+                  </Border>
+                </Border>
+                <Border x:Name="SelectedBorder" BorderBrush="{ThemeResource ListViewItemSelectedBackgroundThemeBrush}" BorderThickness="{ThemeResource GridViewItemMultiselectBorderThickness}" IsHitTestVisible="False" Opacity="0">
+                  <Grid x:Name="SelectedCheckMark" HorizontalAlignment="Right" Height="34" Opacity="0" VerticalAlignment="Top" Width="34">
+                    <Path x:Name="SelectedEarmark" Data="M0,0 L40,0 L40,40 z" Fill="{ThemeResource ListViewItemSelectedBackgroundThemeBrush}" Stretch="Fill"/>
+                    <Path x:Name="SelectedGlyph" Data="M0,123 L39,93 L124,164 L256,18 L295,49 L124,240 z" Fill="{ThemeResource ListViewItemCheckThemeBrush}" FlowDirection="LeftToRight" HorizontalAlignment="Right" Height="14.5" Margin="0,1,1,0" Stretch="Fill" VerticalAlignment="Top" Width="17"/>
+                  </Grid>
+                </Border>
+              </Grid>
+            </Border>
+          </ControlTemplate>
+        </Setter.Value>
+      </Setter>
+    </Style>
+    <DataTemplate x:Key="PivotTitleTemplate">
+      <Grid>
+        <TextBlock HorizontalAlignment="Left" TextWrapping="Wrap" Text="{Binding}" VerticalAlignment="Top" FontWeight="Bold" FontSize="21.333"/>
+      </Grid>
+    </DataTemplate>
+  </Page.Resources>
+  <Page.BottomAppBar>
+    <CommandBar ClosedDisplayMode="Minimal"  Visibility="{Binding IsCommandBarVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+      <CommandBar.SecondaryCommands>
+        <AppBarButton Label="Mentett bejelentkezés törlése" Command="{Binding CredentialClearCommand, Mode=OneWay}"/>
+      </CommandBar.SecondaryCommands>
+    </CommandBar>
+  </Page.BottomAppBar>
+  <Page.DataContext>
+    <vm:SelectedUserViewModel />
+  </Page.DataContext>
+
+  <Page.Transitions>
+    <TransitionCollection>
+      <NavigationThemeTransition>
+        <CommonNavigationTransitionInfo IsStaggeringEnabled="True"/>
+      </NavigationThemeTransition>
+    </TransitionCollection>
+  </Page.Transitions>
+  <Grid x:Name="LayoutRoot">
+    <Grid.RowDefinitions>
+      <RowDefinition Height="Auto"/>
+      <RowDefinition/>
+    </Grid.RowDefinitions>
+    <ProgressBar IsIndeterminate="True" Grid.Row="0" Visibility="{Binding ShowProgressBar, Converter={StaticResource BoolToVisibilityConverter}}" />
+    <Pivot x:Name="pvt" Title="{Binding SelectedUser}" Grid.Row="1" TitleTemplate="{StaticResource PivotTitleTemplate}" SelectedIndex="{Binding SelectedPivotIndex, Mode=TwoWay}">
+      <PivotItem Header="Statisztika">
+        <Grid>
+          <TextBlock Text="Nincsen még befejezett Teszt!" FontSize="22" TextWrapping="WrapWholeWords"
+                     Visibility="{Binding IsStatisticEmpty, Converter={StaticResource BoolToVisibilityConverter}}" >
+            <TextBlock.Foreground>
+              <SolidColorBrush Color="{ThemeResource TextBoxPlaceholderColor}"/>
+            </TextBlock.Foreground>
+          </TextBlock>
+          <ListView x:Name="lvStatistic" ItemsSource="{Binding StatisticList}"
+                    ItemTemplate="{StaticResource StatisticListDataTemplate}"
+                    IsItemClickEnabled="True">
+            <Interactivity:Interaction.Behaviors>
+              <Core:EventTriggerBehavior EventName="ItemClick">
+                <Core:InvokeCommandAction Command="{Binding ItemClickedCommand, Mode=OneWay}"
+                                        InputConverter="{StaticResource ItemClickConverter}"/>
+              </Core:EventTriggerBehavior>
+            </Interactivity:Interaction.Behaviors>
+          </ListView>
+        </Grid>
+      </PivotItem>
+      <PivotItem x:Name="NewTestPivotItem" Header="Új Teszt">
+        <ScrollViewer>
+          <Grid>
+            <Grid.RowDefinitions>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+              <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+              <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+              </Grid.ColumnDefinitions>
+              <TextBlock Text="Kérdések száma:" FontSize="18.667" Margin="0,15,0,0" />
+              <StackPanel HorizontalAlignment="Center" Grid.Column="1" >
+                <RadioButton IsChecked="{Binding NumberQuestion, Mode=TwoWay, ConverterParameter=10, Converter={StaticResource RadioButtonConverter}}"
+									GroupName="NumQuestion" Content="10" />
+                <RadioButton IsChecked="{Binding NumberQuestion, Mode=TwoWay, ConverterParameter=15, Converter={StaticResource RadioButtonConverter}}"
+									GroupName="NumQuestion" Content="15" />
+                <RadioButton IsChecked="{Binding NumberQuestion, Mode=TwoWay, ConverterParameter=20, Converter={StaticResource RadioButtonConverter}}"
+									GroupName="NumQuestion" Content="20" />
+              </StackPanel>
+            </Grid>
+            <StackPanel Grid.Row="1">
+              <ComboBox Header="Kurzus:" ItemsSource="{Binding CourseList}" SelectedItem="{Binding SelectedCourse, Mode=TwoWay}"
+								HorizontalAlignment="Stretch" VerticalAlignment="Top" Margin="0,10,0,0">
+                <ComboBox.ItemTemplate>
+                  <DataTemplate>
+                    <StackPanel>
+                      <TextBlock Text="{Binding CourseName}" FontWeight="Bold" FontSize="18.667" />
+                      <TextBlock Text="{Binding CourseDescription}" FontStyle="Italic" Margin="5,0,0,0" FontSize="16" />
+                    </StackPanel>
+                  </DataTemplate>
+                </ComboBox.ItemTemplate>
+              </ComboBox>
+            </StackPanel>
+            <StackPanel Grid.Row="2">
+              <ListView x:Name="lvTopic" Header="Témakör:" ItemsSource="{Binding TopicList}" SelectionMode="Multiple" ItemTemplate="{StaticResource TopicListDataTemplate}"
+								ItemContainerStyle="{StaticResource ListViewItemStyle}"
+								HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="200" Margin="0,10,0,0" >
+                <Interactivity:Interaction.Behaviors>
+                  <Core:EventTriggerBehavior EventName="SelectionChanged">
+                    <Core:InvokeCommandAction Command="{Binding SelectionChangedCommand, Mode=OneWay}"
+                                        InputConverter="{StaticResource TopicSelectionChangedConverter}"
+                                              InputConverterParameter="{Binding ElementName=lvTopic}"/>
+                  </Core:EventTriggerBehavior>
+                </Interactivity:Interaction.Behaviors>
+              </ListView>
+              <TextBlock Text="Válassz ki legalább egy Témakört!" Foreground="Red" FontWeight="Bold" FontSize="20" Margin="2" Visibility="{Binding IsTopicErrorShown, Converter={StaticResource BoolToVisibilityConverter}}" />
+            </StackPanel>
+            <Button x:Name="cmdStartTest" Content="Teszt Indítása" Command="{Binding StartTestCommand}" 
+							Grid.Row="3" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" />
+          </Grid>
+        </ScrollViewer>
+      </PivotItem>
+      <PivotItem x:Name="ProfilPivotItem" Header="Profil">
+        <local:ProfilUserControl />
+      </PivotItem>
+    </Pivot>
+  </Grid>
+</Page>
