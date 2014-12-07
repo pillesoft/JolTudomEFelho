@@ -90,6 +90,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ACTController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\CourseController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -177,6 +178,7 @@
       <DependentUpon>JolTudomE.edmx</DependentUpon>
       <LastGenOutput>JolTudomE.cs</LastGenOutput>
     </Content>
+    <None Include="Properties\PublishProfiles\JolTudomEAPI.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
