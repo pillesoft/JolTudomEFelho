@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Net;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace JolTudomE_WP {
@@ -35,7 +36,7 @@ namespace JolTudomE_WP {
   class WebAPIManager {
     private string _Token;
 
-    private const string WEBAPIROOT = "http://localhost:1854";
+    private const string WEBAPIROOT = "http://joltudomeapi.azurewebsites.net";
 
     private string GetResponse(HttpWebResponse webresp) {
       Stream dataStream = webresp.GetResponseStream();
@@ -44,6 +45,14 @@ namespace JolTudomE_WP {
         return responseFromServer;
       }
 
+    }
+
+    private void ParseCookie(string cookie) {
+      string regex = @"JolTudomEToken=(?<token>.*),";
+      Regex myRegex = new Regex(regex, RegexOptions.None);
+      var mcoll = myRegex.Matches(cookie);
+      if (mcoll.Count == 1) _Token = mcoll[0].Groups["token"].Value;
+      else _Token = string.Empty;
     }
 
     private async Task<string> DoRequest(string url) {
@@ -117,7 +126,13 @@ namespace JolTudomE_WP {
 
         if (httpresp.StatusCode == HttpStatusCode.OK) {
           string cookie = httpresp.Headers["Set-Cookie"];
-          _Token = cookie.Split('=')[1];
+          ParseCookie(cookie);
+          //_Token = cookie.Split('=')[1];
+
+          if (string.IsNullOrEmpty(_Token)) {
+            App.LogIt.LogError(string.Format("Cookie Parse Error. Cookie: {0}", cookie));
+            ((App)App.Current).ShowDialog("Jól Tudom E - Hiba", "Nem várt hiba történt! Hívja a fejlesztőt!");
+          }
 
           responseFromServer = GetResponse(httpresp);
           response.Dispose();
