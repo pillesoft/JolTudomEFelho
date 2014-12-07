@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>JolTudomE_DB</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{8c6f388d-a951-4954-b90f-f67b3026790a}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql120DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>JolTudomE_DB</RootNamespace>
+    <AssemblyName>JolTudomE_DB</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>True</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="course\" />
+    <Folder Include="course\Tables\" />
+    <Folder Include="mobile\" />
+    <Folder Include="mobile\Tables\" />
+    <Folder Include="test\" />
+    <Folder Include="test\Tables\" />
+    <Folder Include="users\" />
+    <Folder Include="users\Tables\" />
+    <Folder Include="course\Stored Procedures\" />
+    <Folder Include="mobile\Stored Procedures\" />
+    <Folder Include="test\Stored Procedures\" />
+    <Folder Include="users\Stored Procedures\" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\User Defined Types\" />
+    <Folder Include="Security\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="course\Tables\Courses.sql" />
+    <Build Include="course\Tables\Topics.sql" />
+    <Build Include="mobile\Tables\Events.sql" />
+    <Build Include="test\Tables\Answers.sql" />
+    <Build Include="test\Tables\Questions.sql" />
+    <Build Include="test\Tables\Results.sql" />
+    <Build Include="test\Tables\Times.sql" />
+    <Build Include="users\Tables\Admin.sql" />
+    <Build Include="users\Tables\Person.sql" />
+    <Build Include="users\Tables\Sessions.sql" />
+    <Build Include="users\Tables\Student.sql" />
+    <Build Include="users\Tables\Teacher.sql" />
+    <Build Include="course\Stored Procedures\usp_AddNewCourse.sql" />
+    <Build Include="course\Stored Procedures\usp_AddNewQuestion.sql" />
+    <Build Include="course\Stored Procedures\usp_AddNewTopic.sql" />
+    <Build Include="course\Stored Procedures\usp_EditAnswer.sql" />
+    <Build Include="course\Stored Procedures\usp_EditCourse.sql" />
+    <Build Include="course\Stored Procedures\usp_EditQuestion.sql" />
+    <Build Include="course\Stored Procedures\usp_EditTopic.sql" />
+    <Build Include="course\Stored Procedures\usp_GetAnswers.sql" />
+    <Build Include="course\Stored Procedures\usp_GetCourses.sql" />
+    <Build Include="course\Stored Procedures\usp_GetQuestions.sql" />
+    <Build Include="course\Stored Procedures\usp_GetTopics.sql" />
+    <Build Include="mobile\Stored Procedures\usp_AddEvent.sql" />
+    <Build Include="test\Stored Procedures\usp_CancelTest.sql" />
+    <Build Include="test\Stored Procedures\usp_CheckedAnswer.sql" />
+    <Build Include="test\Stored Procedures\usp_CleanupTests.sql" />
+    <Build Include="test\Stored Procedures\usp_ContineTest.sql" />
+    <Build Include="test\Stored Procedures\usp_Eval.sql" />
+    <Build Include="test\Stored Procedures\usp_NewTest.sql" />
+    <Build Include="test\Stored Procedures\usp_Statistics.sql" />
+    <Build Include="users\Stored Procedures\usp_AddNewUser.sql" />
+    <Build Include="users\Stored Procedures\usp_Authenticate.sql" />
+    <Build Include="users\Stored Procedures\usp_GetAllUsers.sql" />
+    <Build Include="users\Stored Procedures\usp_ResetPassword.sql" />
+    <Build Include="users\Stored Procedures\usp_SearchUser.sql" />
+    <Build Include="users\Stored Procedures\usp_SessionsCleanup.sql" />
+    <Build Include="users\Stored Procedures\usp_UpdateUser.sql" />
+    <Build Include="dbo\User Defined Types\TopicIDs.sql" />
+    <Build Include="Security\course.sql" />
+    <Build Include="Security\mobile.sql" />
+    <Build Include="Security\test.sql" />
+    <Build Include="Security\users.sql" />
+  </ItemGroup>
+</Project>
