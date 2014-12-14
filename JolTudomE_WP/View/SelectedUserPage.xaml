@@ -270,6 +270,7 @@
     <CommandBar ClosedDisplayMode="Minimal"  Visibility="{Binding IsCommandBarVisible, Converter={StaticResource BoolToVisibilityConverter}}">
       <CommandBar.SecondaryCommands>
         <AppBarButton Label="Mentett bejelentkezés törlése" Command="{Binding CredentialClearCommand, Mode=OneWay}"/>
+        <!--<AppBarButton Label="Kép kiválasztás" Command="{Binding PickupImageCommand, Mode=OneWay}"/>-->
       </CommandBar.SecondaryCommands>
     </CommandBar>
   </Page.BottomAppBar>

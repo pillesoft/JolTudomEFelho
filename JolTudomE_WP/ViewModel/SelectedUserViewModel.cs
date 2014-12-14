@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using Windows.Storage.Pickers;
 
 namespace JolTudomE_WP.ViewModel {
   public class SelectedUserViewModel : BaseNotifyable, IViewModel {
@@ -30,6 +31,26 @@ namespace JolTudomE_WP.ViewModel {
       ?? (_CredentialClearCommand = new RelayCommand(
       () => {
         ((App)App.Current).ClearCredential();
+      },
+      () => true));
+      }
+    }
+
+    private RelayCommand _PickupImageCommand;
+    public RelayCommand PickupImageCommand {
+      get {
+        return _PickupImageCommand
+      ?? (_PickupImageCommand = new RelayCommand(
+      () => {
+        FileOpenPicker openPicker = new FileOpenPicker();
+        openPicker.ViewMode = PickerViewMode.Thumbnail;
+        openPicker.SuggestedStartLocation = PickerLocationId.PicturesLibrary;
+        openPicker.FileTypeFilter.Add(".jpg");
+        openPicker.FileTypeFilter.Add(".jpeg");
+        openPicker.FileTypeFilter.Add(".png");
+
+        // Launch file open picker and caller app is suspended and may be terminated if required
+        openPicker.PickSingleFileAndContinue();
       },
       () => true));
       }

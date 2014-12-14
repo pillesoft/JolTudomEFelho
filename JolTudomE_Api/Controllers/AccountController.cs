@@ -1,5 +1,6 @@
 ﻿using JolTudomE_Api.Models;
 using JolTudomE_Api.Security;
+using JolTudomE_Api.Storage;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity.Core;
@@ -24,6 +25,10 @@ namespace JolTudomE_Api.Controllers {
       var id = (CustomIdentity)User.Identity;
 
       var p = DBContext.Person.Find(id.PersonID);
+
+      ActionStatistic acts = new ActionStatistic("Login", Roles.First(r => r.RoleID == id.RoleID).Role);
+      StorMan.InsertToTable(Storage.TStorageType.ActionStatistic, acts);
+
       return new LoginResponse { PersonID = id.PersonID, RoleID = id.RoleID, DisplayName = string.Format("{0}, {1}", p.LastName.ToUpper(), p.FirstName) };
     }
 
