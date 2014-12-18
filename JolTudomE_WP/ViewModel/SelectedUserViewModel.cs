@@ -174,6 +174,12 @@ namespace JolTudomE_WP.ViewModel {
       IsTopicErrorShown = false;
       SelectedUser = "Belépett Felhasználó";
 
+      //StatisticList = new List<Statistic>() {
+      //  new Statistic{TestID=3, CorrectAnswer=10, Questions=10, Generated=DateTime.Now, TotalTime=TimeSpan.FromTicks(4568789465489), Percent=(decimal)1.0},
+      //  new Statistic{TestID=1, CorrectAnswer=7, Questions=10, Generated=DateTime.Now, TotalTime=TimeSpan.FromTicks(5000), Percent=(decimal)0.7},
+      //  new Statistic{TestID=2, CorrectAnswer=3, Questions=10, Generated=DateTime.Now, TotalTime=TimeSpan.FromTicks(4542), Percent=(decimal)0.3},
+      //};
+
     }
 
     private async void GetTopicList() {
