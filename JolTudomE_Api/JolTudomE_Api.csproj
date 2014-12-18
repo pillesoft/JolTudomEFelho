@@ -210,6 +210,7 @@
       <DependentUpon>JolTudomE.edmx</DependentUpon>
       <LastGenOutput>JolTudomE.cs</LastGenOutput>
     </Content>
+    <Content Include="Storage.cd" />
     <None Include="Properties\PublishProfiles\JolTudomEAPI.pubxml" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
